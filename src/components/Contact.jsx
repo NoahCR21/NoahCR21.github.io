@@ -7,7 +7,7 @@ import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
 
-
+import { PUBLIC_API_KEY, SERVICE_API_KEY, TEMPLATE_API_KEY, } from '../constants/apiKey';
 
 
 const Contact = () => {
@@ -30,14 +30,11 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    //opihbD33mPg6SW7_r
-    //template_567c20g
-    //service_7w6zpjs
 
 
     emailjs.send(
-      'service_7w6zpjs',
-      'template_567c20g',
+      SERVICE_API_KEY,
+      TEMPLATE_API_KEY,
       {
         from_name: form.name,
         to_name: 'Noah',
@@ -46,7 +43,7 @@ const Contact = () => {
         message: form.message
         
       },
-      'opihbD33mPg6SW7_r'
+      PUBLIC_API_KEY
       ).then(() => {
         setLoading(false);
         alert('Thank you. I will get back to you as soon as possible.');
